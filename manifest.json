@@ -1,0 +1,27 @@
+{
+  "name": "V 에버 에프터 관람 기록",
+  "short_name": "V 에버 에프터",
+  "description": "뮤지컬 V 에버 에프터 2026-2027 관람 기록 앱",
+  "start_url": "/VeverAfter_2026/",
+  "scope": "/VeverAfter_2026/",
+  "display": "standalone",
+  "display_override": ["fullscreen", "standalone"],
+  "orientation": "portrait",
+  "background_color": "#eef0f4",
+  "theme_color": "#2f3b52",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
