@@ -435,7 +435,7 @@ input:checked+.toggle-slider::before{transform:translateX(24px)}
           <button class="emoji-pick-btn" data-emoji="✝️" onclick="setTitleEmoji('✝️')" title="십자가">✝️</button>
           <button class="emoji-pick-btn" data-emoji="🗡️" onclick="setTitleEmoji('🗡️')" title="검">🗡️</button>
           <button class="emoji-pick-btn" data-emoji="♟️" onclick="setTitleEmoji('♟️')" title="체스말">♟️</button>
-          <button class="emoji-pick-btn" data-emoji="🕰️" onclick="setTitleEmoji('🕰️')" title="시계">🕰️</button>
+          <button class="emoji-pick-btn" data-emoji="🕰️" onclick="setTitleEmoji('🕰️')" title="모래시계">⏳</button>
         </div>
       </div>
     </div>
@@ -579,15 +579,15 @@ input:checked+.toggle-slider::before{transform:translateX(24px)}
     <div class="form-row">
       <div class="form-group">
         <label class="form-label">프란체스</label>
-        <input class="form-input" id="f-cast-franches" type="text" placeholder="프란체스">
+        <input class="form-input" id="f-cast-frantzschez" type="text" placeholder="프란체스">
       </div>
       <div class="form-group">
         <label class="form-label">레미</label>
-        <input class="form-input" id="f-cast-remi" type="text" placeholder="레미">
+        <input class="form-input" id="f-cast-lehmig" type="text" placeholder="레미">
       </div>
       <div class="form-group">
         <label class="form-label">조이</label>
-        <input class="form-input" id="f-cast-joy" type="text" placeholder="조이">
+        <input class="form-input" id="f-cast-zoii" type="text" placeholder="조이">
       </div>
     </div>
 
@@ -1055,9 +1055,9 @@ function warnOutOfRun() {
 
 // ===== 배우 설정 =====
 const CAST_CONFIG = {
-  franches: { role: '프란체스', actors: ['랑연', '이준우', '이승준'] },
-  remi: { role: '레미', actors: ['박경호', '권태하', '정단비'] },
-  joy: { role: '조이', actors: ['공현비', '이동연', '함태규'] }
+  frantzschez: { role: '프란체스', actors: ['랑연', '이준우', '이승준'] },
+  lehmig: { role: '레미', actors: ['박경호', '권태하', '정단비'] },
+  zoii: { role: '조이', actors: ['공현비', '이동연', '함태규'] }
 };
 const ROLE_KEYS = Object.keys(CAST_CONFIG);
 function getRoleByActor(name) {
@@ -3234,7 +3234,7 @@ function renderStatsPair() {
   });
 
   // 랑연/정단비/공현비를 제외한 나머지 2×2×2 페어 조합은 관람 데이터가 없어도 정산표에 항상 표시
-  const PAIR_TABLE_EXCLUDE = { franches: '랑연', remi: '정단비', joy: '공현비' };
+  const PAIR_TABLE_EXCLUDE = { frantzschez: '랑연', lehmig: '정단비', zoii: '공현비' };
   const remainingActorsByRole = ROLE_KEYS.map(k => CAST_CONFIG[k].actors.filter(a => a !== PAIR_TABLE_EXCLUDE[k]));
   const guaranteedPairs = remainingActorsByRole.reduce((acc, actors) => acc.flatMap(combo => actors.map(a => [...combo, a])), [[]]);
   guaranteedPairs.forEach(parts => {
@@ -3460,7 +3460,7 @@ async function fetchScheduleData() {
     const lines = text.trim().split('\n').slice(1); // skip header
     state.showSchedule = lines.map(line => {
       const cols = line.split(',').map(c => c.trim().replace(/^"|"$/g,''));
-      return { date: cols[0]||'', time: cols[2]||'', franches: cols[3]||'', remi: cols[4]||'', joy: cols[5]||'', event: cols[6]||'' };
+      return { date: cols[0]||'', time: cols[2]||'', frantzschez: cols[3]||'', lehmig: cols[4]||'', zoii: cols[5]||'', event: cols[6]||'' };
     }).filter(s => s.date);
     // 기존 일정 이벤트 업데이트
     let updatedCount = 0;
